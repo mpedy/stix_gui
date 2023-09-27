@@ -1,0 +1,990 @@
+/********** GENERALE **********/
+.nopadding { 
+    padding: 0px !important;
+}
+.nopaddinglr {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.nopaddingtb {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.md-inputfield label {
+    color: #6EADD6;
+}
+.ui-carousel-header, .ui-datatable-header, .ui-treetable-header {
+    background: #649DC2 !important;
+    border: #649DC2 !important;
+}
+.ui-datalist-header {
+    background: #649DC2 !important;
+    border: #649DC2 !important;
+}
+#attachments .ui-widget-header {
+    border: none !important;
+}
+.ui-button {
+    background: #649DC2 !important;
+}
+.ui-button:hover {
+    background: #6EADD6 !important;
+}
+.myPanel {
+    background: transparent !important;
+    border: none !important;
+    left: 100px;
+}
+.ui-datatable .ui-state-active { /* colore delle colonne quando vengono cliccate per ordinamento */
+    background-color: #649DC2 !important;
+    border-top-color: #649DC2 !important;
+}
+.ui-datagrid-content { /* toglie lo sfondo e il bordo a tutte le datagrid */
+    background: transparent !important;
+    border: none !important;
+}
+.ui-datatable .ui-state-highlight { /* colore di selezione tabelle */ 
+    background: #649DC2 !important;
+    color: white !important;
+    font-weight: bold;
+    opacity: 1.0 !important;
+}
+.ui-datatable .ui-state-highlight td { /* toglie il bordo dalla selezione delle tabelle */ 
+    border: none !important;
+}
+.ui-datatable.ui-datatable-sticky.ui-widget.ui-shadow.ui-sticky {
+    top: 64px !important;
+}
+.ui_tpicker_minute_label {
+    margin-top: 10px;
+}
+.ui_tpicker_hour_label  {
+    margin-top: 10px;
+}
+.ui-selectbooleanbutton.ui-state-default { /* valore negativo boolean button */
+    background: #A90000 !important;
+    color: white;
+}
+.ui-selectbooleanbutton.ui-state-active { /* valore positivo boolean button */
+    background: #48DE25 !important;
+    color: black;
+}
+.ui-toolbar { /* toolbar */
+    padding: 5px !important;
+    margin-bottom: 5px;
+    background: transparent !important;
+    margin-top: 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.ui-progressbar , .ui-progressbar .ui-corner-all { /* progresbar arrotondata */
+    border-radius: 10px !important;
+}
+.ui-progressbar .ui-progressbar-label { /* scritta dentro la status bar */
+    color: black !important
+}
+/*.ui-progressbar .ui-widget-header {
+    background: #649DC2 !important;
+    border-color: #649DC2 !important;
+}*/
+.buttonNoBackground , .buttonNoBackground .ui-icon { /* lasci solo la scritta nei button */
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+}
+.buttonNoBackground:hover { /* mette il grassetto al passaggio del mouse */
+    font-weight: bold !important;
+}
+.ui-state-highlight { /* cambia il colore in tutti i componenti che prevedono una selezione (calendario,selectOneMenu, ecc..) */
+    background: #649DC2 !important;
+    border-color: #649DC2 !important;
+}
+.ui-growl {
+    top: 120px !important;
+    z-index: 999998 !important;
+}
+.ui-messages {
+    text-align: left !important;
+}
+.ui-inputswitch .ui-inputswitch-handle {
+    background-color: #A90000 !important;
+}
+.ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-handle {
+    background-color: #48DE25 !important;
+}
+.ui-inputswitch.ui-inputswitch-checked {
+    background-color: #3EBF20 !important;
+    border-color: #3EBF20 !important;
+}
+.overview-box-header {
+    background: #6EADD6 !important;
+}
+.overview-box-content {
+    background: #649DC2 !important;
+}
+.overview-box-icon {
+    background: #649DC2 !important;
+}
+.ui-fileupload-buttonbar {
+    background: transparent !important;
+}
+.ui-autocomplete .ui-button {
+    background: transparent !important;
+}
+.ui-picklist-list {
+    width: 150px !important;
+}
+.ui-lightbox {
+    margin-top: 30px !important;
+    margin-left: 30px !important;
+}
+.ui-tabs {
+    border: none !important;
+    background: transparent !important;
+}
+.ui-tabs-nav {
+    border: none !important;
+    background: transparent !important;
+}
+.ui-tabs-nav .ui-state-default {
+    border: none !important;
+}
+.ui-tabs-nav .ui-state-default a {
+    color: #649DC2 !important;
+}
+.ui-tabs-nav .ui-state-active {
+    background: #649DC2 !important;
+    border: none !important;
+}
+.ui-tabs-nav .ui-state-active a {
+    color: white !important;
+}
+/*.jqplot-meterGauge-label {
+    color: black !important;
+    top: 32% !important;
+}*/
+.displayNone {
+    display: none !important;
+}
+.ui-paginator {
+    background: #649DC2 !important;
+}
+.ui-paginator-rpp-options {
+    background: #649DC2 !important;
+    border: none;
+    color: white
+}
+.ui-paginator.ui-paginator-top {
+    display: none;
+}
+
+.color-FFE026.fc-event {
+    background-color: #FFE026 !important;
+}
+.color-standard.fc-event {
+    background-color: green !important;
+}
+.color-pause.fc-event {
+    background-color: grey !important;
+}
+.color-standard-old.fc-event {
+    background-color: green !important;
+    opacity: 0.5;
+}
+.color-old.fc-event {
+    opacity: 0.5;
+}
+
+/********** SIDEBAR **********/
+.sidebar-anchor {
+    display: inline-block !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 8px !important;
+    margin-top: 3px !important;
+}
+.layout-wrapper .layout-sidebar.layout-sidebar-active .sidebar-anchor {
+    display: none !important;
+}
+/*.active-menuitem, .active-menuitem a {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}*/
+.selectedMenu {
+    background-color: #649DC2 !important;
+    color: white !important
+}
+.fa-icon-performance {
+    background-image: url(../../resources/icons/sidebar/Performance_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-analisi {
+    background-image: url(../../resources/icons/sidebar/Analisi_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-registrazioni {
+    background-image: url(../../resources/icons/sidebar/Registrazioni_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-configurazione {
+    background-image: url(../../resources/icons/sidebar/Configurazione_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-coaching {
+    background-image: url(../../resources/icons/sidebar/Coaching_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-comunicazioni {
+    background-image: url(../../resources/icons/sidebar/Comunicazioni_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-rewards {
+    background-image: url(../../resources/icons/sidebar/Rewards_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-survey {
+    background-image: url(../../resources/icons/sidebar/Survey_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-prediction {
+    background-image: url(../../resources/icons/sidebar/Prediction_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 21% !important;
+}
+.fa-icon-visualizzaU {
+    background-image: url(../../resources/icons/sidebar/VisualizzaUtenti_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-nuovoU {
+    background-image: url(../../resources/icons/sidebar/NuovoUtente_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-approvaU {
+    background-image: url(../../resources/icons/sidebar/ApprovazioneUtenti_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-goalS {
+    background-image: url(../../resources/icons/sidebar/GoalSettings_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-wd {
+    background-image: url(../../resources/icons/sidebar/WallDisplays_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-problemigenerali {
+    background-image: url(../../resources/icons/sidebar/problemigenerali.svg);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-organizzazione {
+    background-image: url(../../resources/icons/sidebar/Organizzazione_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-realtimecarousel {
+    background-image: url(../../resources/icons/sidebar/Realtime_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-licenzePC {
+    background-image: url(../../resources/icons/sidebar/LicenzePC_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-banchePC {
+    background-image: url(../../resources/icons/sidebar/Migrazione_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-smsPC {
+    background-image: url(../../resources/icons/sidebar/smsPC_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-chatPC {
+    background-image: url(../../resources/icons/sidebar/chatPC_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-recallPC {
+    background-image: url(../../resources/icons/sidebar/Recall_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-wizardchart {
+    background-image: url(../../resources/icons/sidebar/WizardChart_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-wizarddashboard {
+    background-image: url(../../resources/icons/sidebar/WizardDashboard_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-wizardsequence {
+    background-image: url(../../resources/icons/sidebar/WizardSequence_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-wizardslideshow {
+    background-image: url(../../resources/icons/sidebar/WizardSlideshow_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-composersection {
+    background-image: url(../../resources/icons/sidebar/Composer_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-schedulazioni {
+    background-image: url(../../resources/icons/sidebar/Schedulazioni_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-targetQueuesPC {
+    background-image: url(../../resources/icons/sidebar/TargetQueuesPC_icon.png);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+.fa-icon-gestioneTeams{
+    background-image: url(../../resources/icons/sidebar/gestioneTeams_sidebar.svg);
+    background-repeat: no-repeat;
+    width: 40px !important;
+    height: 40px !important;
+    right: 0px !important;
+    top: 20% !important;
+}
+
+/********** TOPBAR **********/
+#tenantTopBar .ui-icon {
+    color: white !important;
+}
+.tenantList td {
+    width: 70px !important;
+}
+
+/********** LOGIN **********/
+.login-form {
+    text-align: center !important;
+}
+.login-form a {
+    text-align: center !important;
+    color: #649DC2 !important;
+}
+
+/********** INDEX **********/
+#form-index .ui-widget-content {
+    background: transparent !important;
+    border: none !important;
+    padding: 0px !important;
+}
+.index-title {
+    color: #212121;
+    font-size: 1.5em;
+}
+#info-message {
+    border: none;
+    background: #649DC2;
+}
+#info-message h3 , p {
+    margin: 0px;
+}
+
+/********** PERFORMANCE **********/
+.chartcontainer_content {
+    padding: 0px !important;
+}
+.performance-panel {
+    width:100% !important; 
+    border: 0px !important; 
+    padding: 0px !important;
+    margin: 0px !important
+}
+.performance-table table {
+    table-layout: auto !important;
+}
+.ui-panel-content {
+    padding: 0px !important;
+}
+.ui-panel .ui-panel-content td {
+    padding: 0px !important;
+}
+.gridTable td {
+    border: none !important;
+}
+
+/********** ANALISI **********/
+
+#orderList .horizontal, #typologyList .horizontal {
+    background: #649DC2;
+    border-radius: 4px;
+    display: inline;
+    float : left;
+    padding: 0px 0px;
+}
+#typologyList .horizontal {
+    background: #b3b21d;
+}
+#orderList .ui-datalist-data, #typologyList .ui-datalist-data {
+    overflow:auto;
+}
+#orderList .ui-widget-content .ui-icon, #typologyList .ui-widget-content .ui-icon {
+    color: white !important;
+}
+#orderList_list, #typologyList_list {
+    margin: 0px;
+}
+#analisiTable .ui-datatable-scrollable-body, #analisiTableLoggedin .ui-datatable-scrollable-body, #analisiTableState .ui-datatable-scrollable-body, #analisiTableCall .ui-datatable-scrollable-body { 
+    height: auto !important;
+    max-height: calc(100vh - 260px) !important;
+}
+#analisiTable .ui-datatable-header, #analisiTableLoggedin .ui-datatable-header, #analisiTableState .ui-datatable-header, #analisiTableCall .ui-datatable-header {
+    padding: 0px;
+    padding-top: 5px;
+    height: 30px;
+}
+#treeTable .ui-treetable-scrollable-body, #analisiTableBCCSI .ui-datatable-scrollable-body, #analisiTableLoggedin .ui-datatable-scrollable-body, #analisiTableState .ui-datatable-scrollable-body, #analisiTableCall .ui-datatable-scrollable-body { 
+    height: auto !important;
+    max-height: calc(100vh - 260px) !important;
+}
+#treeTable .ui-treetable-header, #analisiTableBCCSI .ui-datatable-header, #analisiTableLoggedin .ui-datatable-header, #analisiTableState .ui-datatable-header, #analisiTableCall .ui-datatable-header {
+    padding: 0px;
+    padding-top: 5px;
+    height: 30px;
+}
+#treeTable .hasDatepicker {
+    color: white;
+}
+#analisiTableLoggedin .ui-datatable-header, #analisiTableState .ui-datatable-header, #analisiTableCall .ui-datatable-header {
+    padding: 0px;
+    padding-top: 5px;
+    height: 30px;
+}
+.analisi-content { /* contenitore della barra di ricerca */
+    padding-top: 5px !important;
+}
+.analisi-content input { /* calendario */
+    width: 150px;
+    padding-top: 4px;
+    text-align: center;
+    color: black;
+}
+.analisiSearch { /* dal il margine a tutti gli elementi dentro la barra di ricerca */
+    margin-left: 50px;
+    margin-right: 50px;
+    color: black;
+}
+/*.analisiSearch .ui-icon {
+    color: white !important;
+}*/
+.export-file i { /* icone export */
+    display: table-cell;
+    vertical-align: middle;
+    color: white !important; 
+    font-size: 22px; 
+    padding-left: 10px;
+    float: left;
+}
+.historicalCalendar .ui-inputfield {
+    color: white !important;
+}
+.historicalCalendar input {
+    width: 120px
+}
+.historicalExport i { /* icone export */
+    display: table-cell;
+    vertical-align: middle;
+    color: white !important; 
+    font-size: 22px; 
+    padding-left: 10px;
+    float: left;
+}
+#historicalFilter .ui-icon {
+    color: white !important;
+}
+
+/********** REALTIME **********/
+#realtimeTableBCCSI .ui-datatable-scrollable-body { 
+    height: auto !important;
+    max-height: calc(100vh - 200px) !important;
+}
+
+/********** VISUALIZZA UTENTI **********/
+#users .ui-datatable-scrollable-body { /* vale anche per approvazione utenti */
+    height: auto !important;
+    max-height: 78vh;
+}
+#users .ui-datatable-header {
+    padding: 0px;
+    padding-top: 5px;
+    height: 30px;
+}
+.users-export-icon i {
+    color: #649DC2;
+    font-size: 25px;
+    margin-left: 10px;
+    bottom: 10px
+}
+.enable-icon {
+    text-align: center;
+    color: green;
+}
+.disable-icon {
+    text-align: center;
+    color: red;
+}
+
+/********** NUOVO UTENTE **********/
+#create-user .md-inputfield .ui-inputfield {
+    width: 230px;
+    float: left;
+}
+#create-user .ui-autocomplete {
+    float: left;
+    width: 235px;
+}
+#create-user .ui-autocomplete-input {
+    width: 200px !important
+}
+.ui-autocomplete-list {
+    height: 200px !important;
+}
+.menu-select {
+    min-width: 205px !important;
+    width: 255px; 
+    float: left;
+}
+.user-photo .ui-fileupload-buttonbar , .user-photo .ui-fileupload-content {
+    background: transparent;
+    border: none;
+}
+.user-photo .ui-button {
+    background: #649DC2 !important;
+    color: white !important;
+}
+.dayOfWeek-button {
+    width: 60px !important;
+    margin-right: 20px !important;
+}
+#info-user {
+    padding-top: 30px;
+}
+#notify-table td {
+    padding: 0px !important;
+}
+#notify-table .ui-selectbooleanbutton.ui-state-default { /* valore negativo boolean button */
+    height: 20px;
+}
+#notify-table .ui-selectbooleanbutton.ui-state-active { /* valore positivo boolean button */
+    height: 20px;
+}
+#notify-table .ui-button-text {
+    line-height: 20px;
+}
+
+/********** GOAL SETTINGS **********/
+#eval-table td {
+    padding: 0px !important;
+}
+#eval-table .ui-datatable-scrollable-body {
+    height: auto !important;
+    max-height: 78vh;
+    text-align: center;
+}
+#eval-table .ui-selectbooleanbutton {
+    background: transparent !important;
+}
+#eval-table .ui-selectbooleanbutton.ui-state-default {
+    background: transparent !important;
+    border: none !important;
+    background-image: url(../../resources/icons/ArrowsFalse.png) !important;
+    background-position: bottom !important;
+    background-size: 80% !important;
+    background-repeat: no-repeat !important;
+}
+#eval-table .ui-selectbooleanbutton.ui-state-active {
+    background: transparent !important;
+    border: none !important;
+    background-image: url(../../resources/icons/ArrowsTrue.png) !important;
+    background-position: bottom !important;
+    background-size: 80% !important;
+    background-repeat: no-repeat !important;
+}
+#eval-table .ui-inputfield {
+    width: 5vw;
+}
+
+/********** WALL DISPLAYS SETTINGS **********/
+#wdForm {
+    text-align: center;
+}
+.createMsg.ui-widget {
+    color: black;
+    padding: 2%;
+    font-size: 30px !important;
+}
+#wdForm .ui-selectbooleanbutton.ui-state-default {
+    background: transparent !important;
+    box-shadow: none !important;
+    width: 5vw !important; 
+    height: 10vh !important;
+    border: none !important;
+    background-image: url(../../resources/icons/offIcon.png) !important;
+    background-position: center !important;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+}
+#wdForm .ui-selectbooleanbutton.ui-state-active {
+    background-image: url(../../resources/icons/onIcon.png) !important;
+}
+.wdContent {
+    text-align: center;
+    display: table;
+}
+.wdContentElement {
+    height: 15vh;
+    display: table;
+}
+.wdElement {
+    display: table-cell; 
+    vertical-align: middle;
+}
+.wdContent h3, .wdContent h2 {
+    margin: 0px 0px 10px 0px;
+}
+#menuWD {
+    width: 250px;
+}
+#editor {
+    border: 1px solid #999;
+}
+#minutes_input {
+    width: 30px;
+    margin-right: 10px;
+}
+#msg-broadcast .ui-g-12 {
+    padding: 2% 0px 2% 0px;
+}
+#wdPreview_panel {
+    margin-top: 100px 
+}
+
+/********** COACHING **********/
+#chartingArea .ui-carousel-item {
+    padding-bottom: 20px !important;
+}
+#chatForm .chat ul {
+    height: 30vh;
+    overflow-y: auto;
+}
+#chatForm .ui-widget-header {
+    background: #649DC2 !important;
+    border: #649DC2 !important;
+}
+#chatForm .dashboard .chat ul li.message-from p {
+    font-weight: bold;
+    font-size: 10px;
+}
+#chatForm span {
+    max-width: calc(100% - 80px);
+}
+.new-message .message-input {
+    width: calc(100% - 50px) !important;
+    top: 0 !important;
+}
+.new-message .message-input input {
+    margin-left: 20px !important;
+    background-image: none !important;
+}
+.new-message .message-attachment {
+    border-right: none !important;
+}
+
+/********** COACHING ACTION ITEM **********/
+#caiForm .ui-fileupload {
+    width: 30px !important;
+    margin: 0px !important;
+    float: right;
+}
+#caiForm .ui-fileupload-files {
+    display: none !important;
+}
+#caiForm .ui-fileupload .ui-widget-content {   
+    border: none !important;
+}
+#caiForm .ui-fileupload-content {
+    height: 0px !important;
+    width: 50px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+#caiForm .ui-fileupload-buttonbar {
+    padding: 0px !important;
+    width: 30px !important;
+}
+#caiForm .ui-fileupload-buttonbar .ui-button, #caiForm .ui-fileupload-buttonbar .ui-icon{
+    background-color: transparent !important;
+    color: white !important;
+    box-shadow: none !important;
+    top: 5px;
+}
+
+/********** REGISTRAZIONE **********/
+#registrationForm .login-panel {
+    width: 750px;
+    margin-left: -375px;
+}
+
+/********** CREATE HIERARCHY ************/
+#hierarchyForm .ui-widget-content {
+    /*border: none !important;*/
+}
+#hierarchyForm .ui-orderlist, #hierarchyForm .ui-orderlist-list {
+    width: 100% !important;
+}
+#details .ui-widget-content {
+    border: none !important;
+}
+#users .ui-widget-content {
+    border: none !important;
+}
+
+/********** PREDICTION **************/
+#adminPredictionForm .ui-selectbooleanbutton.ui-state-default {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    height: 20px;
+    background-image: url(../../resources/icons/ArrowDownGreen.png) !important;
+    background-position: center !important;
+    background-size: 75% !important;
+    background-repeat: no-repeat !important;
+}
+#adminPredictionForm .ui-selectbooleanbutton.ui-state-active {
+    background-image: url(../../resources/icons/ArrowUpGreen.png) !important;
+}
+/*#predictionForm .ui-icon {
+    color: white !important;
+}
+#predictionForm ::placeholder {
+    color: white;
+}*/
+#predictionForm .ui-datatable-header {
+    background: transparent !important;
+    border: none;
+}
+#predictionForm .ui-inputfield {
+    color: black;
+    border-color: black;
+    background-image: linear-gradient(to bottom, #1E88E5, #1E88E5), linear-gradient(to bottom, #bdbdbd, #bdbdbd);
+}
+
+
+/********** SURVEY **************/
+#templateForm .ui-fileupload-files {
+    display: none !important;
+}
+#templateForm .ui-fileupload .ui-widget-content {   
+    border: none !important;
+}
+#templateForm .ui-fileupload-content {
+    height: 0px !important;
+    width: 50px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+#templateForm .ui-fileupload-buttonbar .ui-button, #caiForm .ui-fileupload-buttonbar .ui-icon{
+    background-color: #649DC2 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+#templateForm .ui-fileupload-buttonbar.ui-widget-header {
+    background: transparent !important;
+    border: none !important;
+}
+#templateForm .ui-widget-content {
+    background: transparent;
+    border: none;
+}
+
+/**************** SELECT CONFIGURATION *******************/
+#templateDialog .ui-widget-content {
+    border: none !important;
+    padding: 0px !important;
+}
+
+/**************** TEMPLATE *******************/
+.panel-template{
+    background: white;
+    height: 100%;
+    /*display: table;*/
+}
+/*body .ui-panel .ui-panel-content {
+    display: table-cell; 
+    vertical-align: middle;
+}*/
+#edit-template-form .ui-fieldset-content {
+    height: 80vh;
+    overflow-y: no-display;
+    overflow-x: hidden;
+}
+
+
+
+
+
+.jqplot-pie-series.jqplot-data-label {
+    color: white !important;
+    font-weight: bold;
+} 
+div.jqplot-table-legend-swatch-outline {
+    border: none !important
+}
+
+/**************** REWARDS ******************/
+#formRewards .ui-carousel-dropdown {
+    display: none !important;
+}
+
+/**************** LICENZE PURECLOUD *******************/
+#purecloudForm .ui-spinner-input {
+    width: 30px !important;
+}
+
+.ui-row-toggler{
+    left: 25%;
+}
+.noHeader > div:first-child {
+    /*display: none !important;*/
+    height: 0px !important;
+}
+
+
+#treeTable > table > tbody > tr{/*child node*/
+    background-color: #fff;
+}
+tr[data-prk~="root"]:nth-child(even){/*root node*/
+    background-color: #fff !important;
+}
+tr[data-prk~="root"]:nth-child(odd){/*root node*/
+    background-color: #fafafa !important;
+}
+#treeTable table tbody tr > td:nth-child(n+2) {
+    text-align: center;
+}
+
+#ui-datepicker-div{
+    z-index: 999999 !important;
+}
+
+/*.container {
+    width: 100%;
+    height: 80%;
+    display: table;
+    text-align: center;
+}
+
+.sub-container {
+    display: table-cell;
+    vertical-align: middle;
+}*/

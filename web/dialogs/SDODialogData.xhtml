@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:dialog header="SDO Data" id="SDODialogData" widgetVar="SDODialogData" modal="true" closable="false"
+              resizable="false" onHide="#{stixGenerator.setIsShowing(false)}">
+        <h:form id="SDODialogDataForm">
+            <p:outputPanel id="SDODialogDataContent">
+                <h:panelGrid columns="2" columnClasses="text-start,text-start">
+                    <c:forEach items="#{stixGenerator.fieldMap}" var="entry">
+                        <c:if test="#{!entry.key.equals('attrs')}">
+                            <p:outputLabel for="@next" value="&#8226; #{entry.key}"/>
+                            <c:choose>
+                                <c:when test="#{stixGenerator.fieldMap[entry.key].type == 1}">
+                                    <p:selectOneMenu value="#{stixGenerator.fieldMap[entry.key].value}" styleClass="ms-3">
+                                        <f:selectItems value="#{stixGenerator.fieldMap[entry.key].possibleValues}"/>
+                                    </p:selectOneMenu>
+                                </c:when>
+                                <c:otherwise>
+                                    <p:inputText value="#{stixGenerator.fieldMap[entry.key].value}" class="ms-3"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:if>
+                    </c:forEach>
+                </h:panelGrid>
+                <table style="#{stixGenerator.fieldMap['attrs'].value.size()>0 ? '': 'display:none'}">
+                    <thead>
+                        <tr>
+                            <th>Verb</th>
+                            <th>Object</th>
+                            <c:set var="show_existing_sdo" value="#{stixGenerator.sdolist.size()>1}" />
+                            <th style="#{show_existing_sdo? '':'display:none;'}">Existing Object</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="#{stixGenerator.fieldMap['attrs'].value}" var="var1" varStatus="loop">
+                            <tr>
+                                <td>
+                                    <p:selectOneMenu value="#{var1.verb}">
+                                        <f:selectItems value="#{stixGenerator.typesOfRelationship}"/>
+                                        <p:ajax update="SDODialogDataForm" process="@form" ></p:ajax>
+                                    </p:selectOneMenu>
+                                </td>
+                                <td>
+                                    <c:if test="#{stixGenerator.sdolist.contains(var1.obj)}">
+                                        <p:selectOneMenu id="obj_#{loop.index}" value="#{var1.obj}" widgetVar="obj_#{loop.index}" converter="generalOBJConverterForAttrs" var="sdo1_left" valueChangeListener="#{stixGenerator.selectedElement(1, loop.index)}"
+                                                         onchange="document.getElementById('SDODialogDataForm:obj_existing_#{loop.index}_input').value = 'null'">
+                                            <f:selectItem itemValue="#{null}" itemLabel="-- select one --"/>
+                                            <f:selectItems value="#{stixGenerator.allsdo_for_attrs}" var="sdos1_left" itemLabel="#{sdos1_left.typeForLabel}" itemValue="#{sdos1_left}"/>
+                                            <p:column>
+                                                <h:outputText value="#{sdo1_left.typeForLabel}"/>
+                                            </p:column>
+                                            <p:ajax update="SDODialogDataForm" process="@form"/>
+                                        </p:selectOneMenu>
+                                    </c:if>
+                                    <c:if test="#{!stixGenerator.sdolist.contains(var1.obj)}">
+                                        <p:selectOneMenu id="obj_#{loop.index}" value="#{var1.obj}" widgetVar="obj_#{loop.index}" converter="generalOBJConverterForAttrs1" var="sdo1_left" valueChangeListener="#{stixGenerator.selectedElement(1, loop.index)}"
+                                                         onchange="document.getElementById('SDODialogDataForm:obj_existing_#{loop.index}_input').value = 'null'">
+                                            <f:selectItem itemValue="#{null}" itemLabel="-- select one --"/>
+                                            <f:selectItems value="#{stixGenerator.allsdo_for_attrs}" var="sdos1_left" itemLabel="#{sdos1_left.typeForLabel}" itemValue="#{sdos1_left}"/>
+                                            <p:column>
+                                                <h:outputText value="#{sdo1_left.typeForLabel}"/>
+                                            </p:column>
+                                            <p:ajax update="SDODialogDataForm" process="@form"/>
+                                        </p:selectOneMenu>
+                                    </c:if>
+                                </td>
+                                <td style="#{show_existing_sdo ? '':'display:none;'}">
+                                    <p:selectOneMenu onchange="console.log('changed!')" id="obj_existing_#{loop.index}" widgetVar="obj_existing_#{loop.index}" value="#{var1.obj_existing}" converter="generalOBJConverter" var="sdo2_left"  valueChangeListener="#{stixGenerator.selectedElement(2, loop.index)}">
+                                        <f:selectItem itemValue="#{null}" itemLabel="-- select one --"/>
+                                        <f:selectItems value="#{stixGenerator.sdolist}" var="sdos2_left" itemLabel="#{sdos2_left.typeForLabel}" itemValue="#{sdos2_left}"/>
+                                        <p:column>
+                                            <h:outputText value="#{sdo2_left.typeForLabel}"/>
+                                        </p:column>
+                                        <p:ajax update="obj_existing_#{loop.index} obj_#{loop.index} SDODialogDataForm" process="@form"/>
+                                    </p:selectOneMenu>
+                                </td>
+                                <td>
+                                    <c:if test="#{var1.obj_existing == null}">
+                                        <p:inputText value="#{var1.value}"/>
+                                    </c:if>
+                                    <c:if test="#{var1.obj_existing != null}">
+                                        <h:outputText value="#{var1.obj_existing.getVal()}"/>
+                                    </c:if>
+                                </td>
+                                <td>
+                                    <c:if test="#{var1.obj_existing == null}">
+                                        <p:commandButton value="X" style="background-color: #dd0000 !important; border-radius: 20px; width: 40px; height: 40px;"
+                                                         actionListener="#{stixGenerator.deleteAttr(loop.index)}" update="SDODialogDataForm"/>
+                                    </c:if>
+                                </td>
+                            </tr>
+                            <tr style="#{var1.verb.equals('is followed by') ? '' : 'display:none;'}">
+                                <td>#{var1.obj} - #{var1.obj_existing}</td>
+                                <td>
+                                    <span>Before: </span>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{var1.value_1}" placeholder="yyyy-MM-dd HH:mm:ss"/>
+                                </td>
+                            </tr>
+                            <tr style="#{var1.verb.equals('is followed by') ? '' : 'display:none;'}">
+                                <td></td>
+                                <td>
+                                    <span>After </span>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{var1.value_2}" placeholder="yyyy-MM-dd HH:mm:ss"/>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+                <p:commandButton value="Add Attribute" immediate="true" actionListener="#{stixGenerator.addAttributeTo(stixGenerator.selectedObject)}" update="SDODialogDataForm"/>
+                <p:commandButton value="Save" action="#{stixGenerator.saveData}" update="@(form :not(.noupdate))" process="SDODialogData" oncomplete="PF('SDODialogData').hide()" />
+                <p:commandButton value="Exit" action="#{stixGenerator.setIsShowing(false)}" update="@(form :not(.noupdate))" process="SDODialogData" oncomplete="PF('SDODialogData').hide()" />
+            </p:outputPanel>
+        </h:form>
+    </p:dialog>
+</xhtml>

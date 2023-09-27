@@ -1,0 +1,86 @@
+{
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "created_time": "2023-09-16T15:02:27.811038800",
+            "created": "2023-09-16T15:02:27.811Z",
+            "name": "Red Team",
+            "description": "The Red team",
+            "id": "threat-actor--564308f8-030f-4d30-95ee-7c60bf7e6b86",
+            "type": "threat-actor",
+            "labels": ["label"],
+            "modified": "2023-09-15T11:52:14.501Z"
+        },
+        {
+            "created_time": "2023-09-16T15:03:08.000998600",
+            "created": "2023-09-16T15:03:07.999Z",
+            "name": "",
+            "description": "",
+            "id": "ipv4-addr--57023512-1f13-4e34-9b4e-c7c57cc07ec3",
+            "type": "ipv4-addr",
+            "value": "1"
+        },
+        {
+            "created_time": "2023-09-16T15:03:08.001998400",
+            "created": "2023-09-16T15:03:08.001Z",
+            "name": "BruteForcing",
+            "description": "",
+            "id": "attack-pattern--a4dbd178-050a-4933-bf33-dc54f570031e",
+            "type": "attack-pattern"
+        },
+        {
+            "created_time": "2023-09-16T15:03:08.001998400",
+            "created": "2023-09-16T15:03:08.001Z",
+            "name": "Execute malicious file",
+            "description": "",
+            "id": "attack-pattern--d1dcd68f-1dac-4139-9260-fee4cd0944f5",
+            "type": "attack-pattern"
+        },
+        {
+            "created_time": "2023-09-16T15:02:36.205098500",
+            "target_ref": "ipv4-addr--57023512-1f13-4e34-9b4e-c7c57cc07ec3",
+            "relationship_type": "has",
+            "created": "2023-09-16T15:02:36.205Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--564308f8-030f-4d30-95ee-7c60bf7e6b86",
+            "id": "relationship--263c0ff4-1132-433d-9d73-2481096f9a5e",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-16T15:02:43.660068700",
+            "target_ref": "attack-pattern--a4dbd178-050a-4933-bf33-dc54f570031e",
+            "relationship_type": "uses",
+            "created": "2023-09-16T15:02:43.660Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--564308f8-030f-4d30-95ee-7c60bf7e6b86",
+            "id": "relationship--70ae8188-a70d-4e19-b1aa-a760fc60b304",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-16T15:02:57.372042100",
+            "target_ref": "attack-pattern--d1dcd68f-1dac-4139-9260-fee4cd0944f5",
+            "relationship_type": "uses",
+            "created": "2023-09-16T15:02:57.372Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--564308f8-030f-4d30-95ee-7c60bf7e6b86",
+            "id": "relationship--00f6b5e0-d2f9-4107-a55c-d980542eb5b1",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-16T15:04:01.472428400",
+            "target_ref": "attack-pattern--d1dcd68f-1dac-4139-9260-fee4cd0944f5",
+            "relationship_type": "is followed by",
+            "created": "2023-09-16T15:04:01.472Z",
+            "target_timeref": "2022-01-01 00:25:00",
+            "source_ref": "attack-pattern--a4dbd178-050a-4933-bf33-dc54f570031e",
+            "id": "relationship--39f65b5b-28eb-4d41-bf64-558c0ff65f4f",
+            "type": "relationship",
+            "source_timeref": "2022-01-01 00:10:00"
+        }
+    ],
+    "id": "bundle--351c6300-4061-4160-8f34-825b92588c0f",
+    "type": "bundle"
+}

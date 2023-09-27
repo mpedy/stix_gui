@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:composite = "http://java.sun.com/jsf/composite"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <composite:interface componentType="emailContainer">
+        <composite:attribute name="email" shortDescription="EmailTranscript object to display"/>
+        <composite:attribute name="includestyle" default="true" shortDescription="Inject style attribute to page"/>
+        <composite:attribute name="includesep" default="false" shortDescription="Boolean to inject separator"/>
+        <composite:attribute name="sep" default="/icons/nexthop.svg" shortDescription="Inject defined separator between element"/>
+        <composite:attribute name="sepstyle" default="" shortDescription="Inject custom separator style"/>
+    </composite:interface>
+    <composite:implementation>
+        <h:panelGroup layout="block" rendered="#{cc.attrs.includestyle}">
+            <style>
+                .emailcontainer{
+                    border: 1px solid gray;
+                    margin: 6vh 0;
+                    border-radius: 15px;
+                }
+                .emailheader{
+                    background: lightgray;
+                    padding: 10px 10px 0 10px;
+                    border-radius: 15px 15px 0 0;
+                }
+                .emailbody{
+                    padding: 20px;
+                }
+                .emailattachments{
+                    padding: 20px;
+                }
+            </style>
+        </h:panelGroup>
+        <h:panelGroup layout="block" rendered="#{cc.attrs.includesep}">
+            <div align="center">
+                <p:graphicImage value="#{cc.attrs.sep}" style="#{cc.attrs.sepstyle}"/>
+            </div>
+        </h:panelGroup>
+        <div class="emailcontainer">
+            <div>
+                <div class="emailheader">
+                    <div class="from">
+                        <p:outputLabel value="#{txt['uilabel.emailfrom']}:" class="ui-g-1" style="width: 10%; text-align: right; font-weight: bold;"/>
+                        <h:outputText value="#{cc.attrs.email.from}" class="ui-g-11" style="width: 90%;"/>
+                    </div>
+                    <div class="to">
+                        <p:outputLabel value="#{txt['uilabel.emailto']}:" class="ui-g-1" style="width: 10%; text-align: right; font-weight: bold;"/>
+                        <div class="ui-g-11" style="width: 90%;">
+                            <c:forEach items="#{cc.attrs.email.to}" var="to">
+                                #{to}
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="subject">
+                        <p:outputLabel value="#{txt['uilabel.emailsubject']}:" style="width: 10%; padding: 0.5em; box-sizing: border-box; text-align: right; font-weight: bold;" />
+                        <h:outputText value="#{cc.attrs.email.subject}" style="width: 90%; padding: 0.5em; box-sizing: border-box;"/>
+                    </div>
+                    <hr/>
+                </div>
+            </div>
+            <div class="emailbody">
+                <h:outputText value="#{cc.attrs.email.body}" escape="false"/>
+            </div>
+            <h:panelGroup layout="block" class="emailattachments" rendered="#{cc.attrs.email.hasExternalAttachments}">
+                <p:outputLabel value="#{txt['uilabel.attachments']}" style="margin: 1vh 1em; font-weight: bold;"/>
+                <c:forEach items="#{cc.attrs.email.attachments}" var="allegato">
+                    <ul>
+                        <c:if test="#{!allegato.value.used}">
+                            <li><a href="#{allegato.value.contentPath}">#{allegato.value.name}</a></li>
+                        </c:if>
+                    </ul>
+                </c:forEach>
+            </h:panelGroup>
+        </div>
+    </composite:implementation>
+</html>

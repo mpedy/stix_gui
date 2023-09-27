@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:composite = "http://java.sun.com/jsf/composite"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <composite:interface componentType="userAccess">
+        <composite:attribute name="divstyle" shortDescription="Set style of the wrapper div of pickinglist"/>
+        <composite:attribute name="pickingduallist" shortDescription="The Dual List for pickinglist component"/>
+        <composite:attribute name="pickingduallistrole" shortDescription="The Dual List for pickinglist component for Role"/>
+        <composite:attribute name="pickstyle" shortDescription="Set style of the picking list"/>
+        <composite:attribute name="pickstylerole" shortDescription="Set style of the picking list for role"/>
+        <composite:attribute name="transferListener" method-signature="void listener(org.primefaces.event.TransferEvent)" shortDescription="Action for TransferEvent (ajax.event ontransfer)"/>
+        <composite:attribute name="transferListenerRole" required="false" method-signature="void listener(org.primefaces.event.TransferEvent)" shortDescription="Action for TransferEvent on Role (ajax.event ontransfer)"/>
+        <composite:attribute name="disabled" required="true" shortDescription="Disabled attribute of pickinglist"/>
+        <composite:attribute name="disabledItemList" default="#{sessionManager.accesso}" shortDescription="List of all items to be disabled in list (source or target)"/>
+        <composite:attribute name="disabledItemListRole" default="" shortDescription="List of all items (role) to be disabled in list (source or target)"/>
+        <composite:attribute name="classList" default="" shortDescription="class for the picklist"/>
+        <composite:attribute name="areRolesVisible" default="false" shortDescription="Rendered attribute for Role PickingList"/>
+        <composite:attribute name="outputRole" default="true" shortDescription="Rendered attribute for Role title of Role PickingList"/>
+        <composite:attribute name="outputUser" default="true" shortDescription="Rendered attribute for User title of User PickingList"/>
+    </composite:interface>
+    <composite:implementation>
+        <style>
+            ul{
+                min-width: 100% !important;
+            }
+            .ui-picklist-item{
+                line-height: 22px;
+            }
+        </style>
+        <div style="#{cc.attrs.divstyle}">
+            <c:if test="#{!empty cc.attrs.pickingduallistrole}">
+                <div style="text-align: center; font-weight: bold;">
+                    <h:outputText rendered="#{cc.attrs.outputRole and cc.attrs.areRolesVisible}" value="#{txt['uilabel.visibilityperrole']}"/>
+                </div>
+                <p:pickList rendered="#{cc.attrs.areRolesVisible}" style="#{cc.attrs.pickstylerole}" id="#{cc.attrs.id}_role" value="#{cc.attrs.pickingduallistrole}" var="visrole" itemLabel="#{visrole}" itemValue="#{visrole}"
+                        itemDisabled="#{cc.attrs.disabledItemListRole.contains(visrole)}"
+                        showCheckbox="false" showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains">
+                    <c:if test="#{!empty cc.getValueExpression('transferListenerRole')}">
+                        <p:ajax event="transfer" listener="#{cc.transferListenerRole}" update="#{cc.attrs.id}_role" global="true"/>
+                    </c:if>
+                </p:pickList>
+            </c:if>
+            <c:if test="#{!empty cc.attrs.pickingduallist}">
+                <div style="text-align: center; font-weight: bold;">
+                    <h:outputText rendered="#{cc.attrs.outputUser}" value="#{txt['uilabel.visibilityperuser']}"/>
+                </div>
+                <p:pickList disabled="#{cc.attrs.disabled}" style="#{cc.attrs.pickstyle}" id="#{cc.attrs.id}" value="#{cc.attrs.pickingduallist}" var="vis" itemLabel="#{vis}" itemValue="#{vis}"
+                        itemDisabled="#{cc.attrs.disabledItemList.contains(vis)}"
+                        showCheckbox="false" showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" >
+                    <c:if test="#{!empty cc.getValueExpression('transferListener')}">
+                        <p:ajax event="transfer" listener="#{cc.transferListener}" update="#{cc.attrs.id}" global="true"/>
+                    </c:if>
+                </p:pickList>
+            </c:if>
+        </div>
+    </composite:implementation>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appenders>
+        <File name="Error" fileName="/usr/share/tomcat8/logs/stix_error.log">
+            <PatternLayout pattern="[%d{ISO8601}] [%t] %-5p %c{6} - %msg%n"/>
+        </File>
+        <File name="Info" fileName="/usr/share/tomcat8/logs/stix_info.log">
+            <PatternLayout pattern="[%d{ISO8601}] [%t] %-5p %c{6} - %msg%n"/>
+        </File>
+        <File name="Fatal" fileName="/usr/share/tomcat8/logs/stix_fatal.log">
+            <PatternLayout pattern="[%d{ISO8601}] - %msg%n"/>
+        </File>
+    </appenders>
+    <loggers>
+        <root name="com.mpedy" level="info" additivity="false">
+            <AppenderRef ref="Fatal" level="fatal"/>
+            <AppenderRef ref="Error" level="error"/>
+            <AppenderRef ref="Info" level="info"/>
+        </root>
+        <logger name="com.mpedy" level="info" additivity="false">
+            <AppenderRef ref="Fatal" level="fatal"/>
+            <AppenderRef ref="Error" level="error"/>
+            <AppenderRef ref="Info" level="info"/>
+        </logger>
+    </loggers>
+</configuration>

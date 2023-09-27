@@ -1,0 +1,60 @@
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+        <p:dataTable value="#{stixGenerator.srolist}" var="sro" id="srolist" style="width: 100%">
+            <f:facet name="header">
+                List of Relationships
+            </f:facet>
+            <p:column>
+                <div>
+                    <span><strong>Created: </strong></span><span>#{sro.created}</span>
+                </div>
+                <div>
+                    <span><strong>Type: </strong></span><span>#{sro.type}</span>
+                </div>
+                <div style="#{sro.relationship_type.equals('is followed by') ? '' : 'display: none;'}">
+                    <span><strong>Source timeref: </strong></span><span>#{sro.source_timeref_t} </span>
+                </div>
+                <div style="#{sro.relationship_type.equals('is followed by') ? '' : 'display: none;'}">
+                    <span><strong>Target timeref: </strong></span><span>#{sro.target_timeref_t}</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="flex-grow: 1">
+                        <div style="text-align: center;">
+                            <p:graphicImage rendered="#{sro.left.type != null}" name="#{sro.left.imgSrc}" library="serenity-layout" style="width: 70px;"/>
+                        </div>
+                        <table>
+                            <tbody>
+                                <ui:repeat value="#{utils.getAllFieldFromClassForUI(sro.left.getClass())}" var="asd">
+                                    <tr>
+                                        <td style="padding: 4px; border: none; text-align: right;"><strong><h:outputLabel value="#{asd.getName().subSequence(0, 1).toUpperCase()}#{asd.getName().substring(1)}"/></strong></td>
+                                        <td style="padding: 4px; border: none;"><h:outputLabel value="#{asd.setAccessible(true) ? 'niente' : asd.get(sro.left).toString()}"/></td>
+                                    </tr>
+                                </ui:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="flex-grow: 1; white-space: nowrap;">
+                        #{sro.relationship_type.toUpperCase()}
+                    </div>
+                    <div style="flex-grow: 1; white-space: nowrap">
+                        <div style="text-align: center;">
+                            <p:graphicImage rendered="#{sro.right.type != null}" name="#{sro.right.imgSrc}" library="serenity-layout" style="width: 70px;"/>
+                        </div>
+                        <table>
+                            <tbody>
+                                <ui:repeat value="#{utils.getAllFieldFromClassForUI(sro.right.getClass())}" var="asd">
+                                    <tr>
+                                        <td style="padding: 4px; border: none; text-align: right;"><strong><h:outputLabel value="#{asd.getName().subSequence(0, 1).toUpperCase()}#{asd.getName().substring(1)}"/></strong></td>
+                                        <td style="padding: 4px; border: none;"><h:outputLabel value="#{asd.setAccessible(true) ? 'niente' : asd.get(sro.right).toString()}"/></td>
+                                    </tr>
+                                </ui:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </p:column>
+        </p:dataTable>
+</xhtml>

@@ -1,0 +1,116 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pa="http://primefaces.org/serenity"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <div class="layout-topbar">
+        <a href="#{request.contextPath}/index.xhtml" class="topbar-logo">
+            <p:graphicImage name="images/logo.svg" library="serenity-layout" />
+            <span class="app-name">Stix</span>
+        </a>
+
+        <p:graphicImage name="images/logo.svg" library="serenity-layout" styleClass="mobile-logo" />
+
+        <a href="#" class="menu-btn">
+            <i class="material-icons">&#xE5D2;</i>
+        </a>
+
+        <a href="#" class="topbar-menu-btn">
+            <i class="material-icons">&#xE853;</i>
+        </a>
+
+        <div class="layout-topbar-menu-wrapper">
+            <div class="sidebar-logo">
+                <a href="index.xhtml">
+                    <p:graphicImage name="images/logo.svg" library="serenity-layout" />
+                    <span class="app-name">Stix</span>
+                </a>
+                <a href="#" class="sidebar-anchor" title="Toggle Menu"></a>
+            </div>            
+            <ul class="topbar-menu animated">
+                <li class="profile-item">
+                    <a href="#">       
+                        <span class="profile-image-wrapper">
+                            <p:graphicImage value="#{sessionManager.imageContent}" cache="false" style="border-radius: 50%" library="serenity-layout" />
+                        </span>                     
+                        <span class="topbar-item-name profile-name">#{sessionManager.currentUser.lastname}</span>
+                        <!-- #{resourceRendererView.showRes()} -->
+                    </a>
+
+                    <ul class="animated">
+                        <ui:remove>
+                            <li role="menuitem">
+                                <a href="manual.xhtml">
+                                    <i class="material-icons ui-icon-local-library"/>
+                                    <span>#{txt['uilabel.manual']}</span>
+                                </a>
+                            </li>
+                        </ui:remove>
+                        <li role="menuitem">
+                            <p:commandLink actionListener="#{adminPanelModifyView.resetUserForModify(sessionManager.currentUser)}">
+                                <i class="material-icons ui-icon-build"/>
+                                <span>#{txt['uilabel.profileSetting']}</span>
+                            </p:commandLink>
+                        </li>
+                        <li role="menuitem">
+                            <p:commandLink onclick="PF('newpwdlg').show()">
+                                <i class="material-icons ui-icon-settings"/>
+                                <span>#{txt['uilabel.changePassword']}</span>
+                            </p:commandLink>
+                        </li>
+                        <li role="menuitem">
+                            <p:commandLink actionListener="#{sessionManager.logout()}">
+                                <i class="material-icons ui-icon-exit-to-app"/>
+                                <span>#{txt['uilabel.logout']}</span>
+                            </p:commandLink>
+                        </li>
+                        <ui:remove>
+                            <li role="menuitem">
+                                <h:panelGrid columns="2">
+                                    <p:commandLink actionListener="#{localeBean.saveLanguage('it',sessionManager.userId)}" oncomplete="location.reload();">
+                                        <p:graphicImage name="/icons/languages/it.png" cache="false" title="#{txt['uilabel.it']}"/>
+                                    </p:commandLink>
+                                    <p:commandLink actionListener="#{localeBean.saveLanguage('en',sessionManager.userId)}" oncomplete="location.reload();">
+                                        <p:graphicImage name="/icons/languages/en.png" cache="false" title="#{txt['uilabel.en']}"/>
+                                    </p:commandLink>
+                                </h:panelGrid>
+                            </li>
+                        </ui:remove>
+                    </ul>
+                </li>
+                <li style="display: #{sessionManager.tenantList.size() gt 1 ? '' : 'none'}">
+                    <a href="#">
+                        <i class="topbar-icon material-icons" title="#{txt['uilabel.selectTenant']}">expand_more</i>
+                    </a>
+                    <ul class="animated" style="text-align: center; max-height: 80vh; overflow: hidden; overflow-y: auto">
+                        <c:forEach items="#{sessionManager.tenantList}" var="m" >
+                            <li role="menuitem">
+                                <p:commandLink actionListener="#{sessionManager.loginInSchema(m.tenantschema)}">
+                                    <p:graphicImage id="img" value="#{sessionManager.getLogo(m.tenantschema)}" height="60px" style="max-width: 100%" stream="base64" cache="false" title="#{sessionManager.getTenantName(m.tenantschema)}"/>
+                                </p:commandLink>                                   
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </li>
+                <li style="width: #{sessionManager.tenantList.size() gt 1 ? '27%' : '30%'}; margin: 0px">
+                    <a href="#" style="top: -12px; float: right">
+                        <p:graphicImage value="#{sessionManager.getLogo(sessionManager.tenant)}" height="55px" style="max-width: 230px" stream="base64" cache="false" rendered="#{sessionManager.tenant eq 'aci_servizi' or sessionManager.tenant eq 'iccrea_bancatelefonica' ? 'false' : 'true'}"/>
+                        <p:graphicImage name="/images/AciServiziLogo.png" library="serenity-layout" height="55px" style="max-width: 230px" rendered="#{sessionManager.tenant eq 'aci_servizi' ? 'true' : 'false'}"/>
+                        <p:graphicImage name="#{sessionManager.getLogoBT()}" library="serenity-layout" height="55px" style="max-width: 230px" rendered="#{sessionManager.tenant eq 'iccrea_bancatelefonica' ? 'true' : 'false'}"/>
+                    </a>
+                </li>
+                <li style="width: 40%; text-align: center; display: flex; justify-content: center; align-items: center;">
+                    <div style="display: none">#{topBarView}</div>
+                    <h1 style="margin: 0px; color: white">#{sessionManager.titlePage}</h1>
+                    <h1 style="color: red; font-size: 18px; margin-left: 10px; display: #{sessionManager.titlePageImpersonificate.length()>0 ? 'inherit' : 'none'}">(#{txt['uilabel.as']} #{sessionManager.titlePageImpersonificate.split("\\(")[0]})</h1>
+                    <h1 style="color: rgb(250,250,0); font-size: 18px; margin-left: 10px; display: #{sessionManager.hd_titlePageImpersonificate.length()>0 ? 'inherit' : 'none'}">(#{txt['uilabel.as']} #{sessionManager.hd_titlePageImpersonificate.split("\\(")[0]})</h1>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</ui:composition>

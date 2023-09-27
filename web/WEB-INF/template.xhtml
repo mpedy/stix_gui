@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="it">
+    <f:view contentType="text/html" locale="#{localeBean.locale}">
+        <h:head>
+            <f:facet name="first">
+                <h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
+                <h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
+                <h:outputStylesheet library="serenity-layout" name="css/layout-blue.css" />
+                <h:outputStylesheet library="serenity-layout" name="css/custom.css" />
+                <h:outputStylesheet library="serenity-layout" name="css/style.css" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+            </f:facet>
+            <link rel="shortcut icon" type="image/x-icon" href="resources/icons/logo.png"/>
+            <title><ui:insert name="title">Stix</ui:insert></title>
+            <h:outputScript name="js/nanoscroller.js" library="serenity-layout" />
+            <h:outputScript name="js/layout.js" library="serenity-layout" />
+            <h:outputScript name="js/ripple.js" library="serenity-layout" />
+            <h:outputScript name="js/html2canvas.js" library="serenity-layout" />
+            <h:outputScript name="js/gauge.min.js" library="serenity-layout" />
+            <h:outputScript name="js/barlineextender.js" library="serenity-layout" />
+            <h:outputScript name="js/iconify.min.js" library="serenity-layout" />
+            <h:outputScript name="js/jquery.knob.min.js" library="serenity-layout" />
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+            <ui:insert name="head"/>
+        </h:head>
+
+        <h:body>
+            <div class="layout-wrapper" >
+                <ui:include src="./sidebar.xhtml" />
+
+                <div class="layout-main">
+                    <ui:include src="./topbar.xhtml" />
+
+                    <div class="layout-content " style="padding: 70px 5px 0px 5px">
+
+                        <div style="height: 78vh !important; padding: 0px">
+                            <ui:insert name="content"/>
+                        </div>
+                    </div>
+                    <div class="layout-main-mask"></div>
+                </div>
+            </div>
+
+            <ui:include src="/includes/changePassword.xhtml"/>
+            <ui:include src="/includes/notImplemented.xhtml"/>
+            <ui:include src="/includes/loadingPage.xhtml"/>
+            <ui:include src="/includes/licenseExpired.xhtml"/>
+        </h:body>
+        <script>
+            $(document).keypress(
+                    function (event) {
+                        if (event.which == '13') {
+                            event.preventDefault();
+                        }
+                    });
+        </script>
+    </f:view>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/stix</property>
+        <property name="hibernate.connection.username">stix</property>
+        <property name="hibernate.connection.password">stix</property>
+        <property name="hibernate.c3p0.max_size">40</property>
+        <property name="hibernate.c3p0.min_size">2</property>
+        <property name="hibernate.c3p0.timeout">60</property>
+        <property name="hibernate.c3p0.max_statements">0</property>
+        <property name="hibernate.c3p0.idle_test_period">30</property>
+        <!-- Sessions and transactions -->
+        <property name="hibernate.c3p0.validationQuery">SELECT 1</property>
+        <property name="hibernate.c3p0.maxIdle">5</property>
+        <property name="hibernate.c3p0.maxActive">40</property>
+        <property name="hibernate.c3p0.initialSize">5</property>
+        <property name="hibernate.c3p0.timeBetweenEvictionRunsMillis">10000</property>
+        <property name="hibernate.c3p0.testWhileIdle">true</property>
+        <property name="hibernate.c3p0.preferredTestQuery">SELECT 1</property>
+        <property name="hibernate.c3p0.autoCommitOnClose">true</property>
+        <property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+        <property name="show_sql">false</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>    
+    </session-factory>
+</hibernate-configuration>

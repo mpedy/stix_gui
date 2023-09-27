@@ -1,0 +1,10 @@
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <p:dialog header="Load JSON from file" widgetVar="loadJSON" modal="true"
+              resizable="false" onHide="#{stixGenerator.setIsShowing(false)}">
+            <p:inputTextarea placeholder="Insert JSON text ..." value="#{stixGenerator.jsonFile}" style="border: 1px solid gray; max-width: 80vw; max-height: 60vh;width: 80vw; height: 60vh;"/>
+            <p:commandButton action="#{stixGenerator.loadJSONFromFile}" value="Load" process="@form" update="@form"/>
+    </p:dialog>
+</xhtml>

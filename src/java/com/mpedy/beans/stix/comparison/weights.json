@@ -1,0 +1,212 @@
+{
+    "AttackPattern": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Campaign": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "CourseOfAction": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Grouping": {
+        "name": 0.8,
+        "description": 0.1
+    },
+    "Identity": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Incident": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Indicator": {
+        "pattern": 0.2,
+        "name": 0.7,
+        "description": 0.1
+    },
+    "Infrastructure": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "IntrusionSet": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Location": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Malware": {
+        "is_family": 0,
+        "name": 0.8,
+        "description": 0.2
+    },
+    "MalwareAnalysis": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Note": {
+        "content": 0.2,
+        "name": 0.7,
+        "description": 0.1
+    },
+    "ObservedData": {
+        "first_observed_time": 0.8,
+        "first_observed": 0.8,
+        "last_observed_time": 0.8,
+        "last_observed": 0.8,
+        "number_observed": 0.8,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "Opinion": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Report": {
+        "published_time": 0.8,
+        "published": 0.8,
+        "name": 0.8,
+        "description": 0.2
+    },
+    "ThreatActor": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Tool": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Vulnerability": {
+        "name": 0.8,
+        "description": 0.2
+    },
+    "Artifact": {
+        "mime_type": 0.8,
+        "url": 1,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "AutonomousSystem": {
+        "number": 0.8,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "Directory": {
+        "path": 1,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "DomainName": {
+        "value": 1,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "EmailAddress": {
+        "value": 1,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "EmailMessage": {
+        "is_multipart": 0.5,
+        "body": 1,
+        "subject": 1,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "File": {
+        "name": 1,
+        "size": 1,
+        "description": 0.2
+    },
+    "IPv4Address": {
+        "value": 1,
+        "name": 0.6,
+        "description": 0.1
+    },
+    "IPv6Address": {
+        "value": 1,
+        "name": 0.6,
+        "description": 0.1
+    },
+    "MACAddress": {
+        "value": 0.8,
+        "name": 0.6,
+        "description":  0.1
+    },
+    "Mutex": {
+        "name": 0.8,
+        "description": 0.1
+    },
+    "NetworkTraffic": {
+        "start": 0.8,
+        "end": 0.8,
+        "name": 0.8,
+        "description": 0.1
+    },
+    "Process": {
+        "is_hidden": 0.8,
+        "pid": 1,
+        "command_line": 1,
+        "created_ref": 0.8,
+        "name": 1,
+        "description": 0.3
+    },
+    "Software": {
+        "version": 1,
+        "name": 1,
+        "description": 0.2
+    },
+    "URL": {
+        "value": 1,
+        "name": 1,
+        "description": 0.2
+    },
+    "UserAccount": {
+        "user_id": 1,
+        "credential": 1,
+        "account_login": 1,
+        "display_name": 1,
+        "is_service_account": 1,
+        "is_privileged": 1,
+        "can_escalate_privs": 1,
+        "is_disabled": 1,
+        "account_created": 1,
+        "account_expires": 1,
+        "credential_last_changed": 1,
+        "account_first_login": 1,
+        "account_last_login": 1,
+        "name": 0.8,
+        "description": 1
+    },
+    "WindowsRegistryKey": {
+        "key": 1,
+        "number_of_subkeys": 1,
+        "name": 1,
+        "description": 0.2
+    },
+    "X509Certificate": {
+        "is_self_signed": 1,
+        "version": 1,
+        "serial_number": 1,
+        "signature_algorithm": 1,
+        "issuer": 1,
+        "subject": 1,
+        "validity_not_before": 1,
+        "validity_not_after": 1,
+        "name": 0.8,
+        "description": 1
+    },
+    "Relationship": {
+        "type": 1,
+        "created": 0,
+        "source_ref": 0,
+        "target_ref": 0,
+        "source_timeref": 20,
+        "target_timeref": 20
+    }
+}

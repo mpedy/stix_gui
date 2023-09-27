@@ -1,0 +1,52 @@
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <p:dialog header="Create Relationship" widgetVar="makeRelDialog" modal="true" showEffect="fade" closable="false"
+              hideEffect="fade" resizable="false" onHide="#{stixGenerator.setIsShowing(false)}">
+        <p:outputPanel id="makeRelDialogContent">
+            <div style="display: flex; margin-bottom: 20px;">
+                <p:selectOneMenu value="#{stixGenerator.selectedObject_left}" converter="generalOBJConverter" var="sdo_left">
+                    <f:selectItem itemValue="#{null}" itemLabel="-- select one --"/>
+                    <f:selectItems value="#{stixGenerator.sdolist}" var="sdos_left" itemLabel="#{sdos_left.typeForLabel}" itemValue="#{sdos_left}"/>
+                    <p:column style="width:10%">
+                        <p:graphicImage name="#{sdo_left.imgSrc}" library="serenity-layout" alt="#{sdo_left.imgSrc}" style="width: 40px;"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{sdo_left.typeForLabel}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{sdo_left.getHTMLInfo()}" escape="false"/>
+                    </p:column>
+                </p:selectOneMenu>
+                <p:selectOneMenu value="#{stixGenerator.typeOfRelationship}" valueChangeListener="#{stixGenerator.update('test_update')}">
+                    <f:selectItems value="#{stixGenerator.typesOfRelationship}"/>
+                    <p:ajax update="@this"></p:ajax>
+                </p:selectOneMenu>
+                <p:selectOneMenu value="#{stixGenerator.selectedObject_right}" converter="generalOBJConverter" var="sdo_right">
+                    <f:selectItem itemValue="#{null}" itemLabel="-- select one --"/>
+                    <f:selectItems value="#{stixGenerator.sdolist}" var="sdos_right" itemLabel="#{sdos_right.typeForLabel}" itemValue="#{sdos_right}"/>
+                    <p:column style="width:10%">
+                        <p:graphicImage name="#{sdo_right.imgSrc}" library="serenity-layout" alt="#{sdo_right.imgSrc}" style="width: 40px;"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{sdo_right.typeForLabel}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{sdo_right.getHTMLInfo()}" escape="false"/>
+                    </p:column>
+                </p:selectOneMenu>
+            </div>
+            <p:panel id="test_update" style="#{stixGenerator.typeOfRelationship.equals('is followed by')? '' : 'display:none;'} border: none;">
+                <div style='display: grid; grid-template: "a b";'>
+                    <p:outputLabel for="@next" value="Relationship Timestamp &lt;b&gt;before&lt;/b&gt; (YYYY-MM-dd HH:mm:ss) " escape="false"/>
+                    <p:inputText value="#{stixGenerator.rel_timestamp1}"/>
+                    <p:outputLabel for="@next" value="Relationship Timestamp &lt;b&gt;after&lt;/b&gt; (YYYY-MM-dd HH:mm:ss) " escape="false"/>
+                    <p:inputText value="#{stixGenerator.rel_timestamp2}"/>
+                </div>
+            </p:panel>
+            <p:commandButton value="Save" action="#{stixGenerator.saveRelData(stixGenerator.selectedObject_left.id, stixGenerator.selectedObject_right.id)}" update="@(form :not(.noupdate))" process="makeRelDialogContent" />
+            <p:commandButton value="Exit" action="#{stixGenerator.setIsShowing(false)}" update="@(form :not(.noupdate))" process="makeRelDialogContent" />
+        </p:outputPanel>
+    </p:dialog>
+</xhtml>

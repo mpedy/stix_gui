@@ -1,0 +1,254 @@
+{
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "created_time": "2023-09-21T17:41:03.984",
+            "created": "2023-08-17T16:12:55.528611Z",
+            "name": "Red Team",
+            "description": "Attacker of this scenario",
+            "id": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "type": "threat-actor"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.986",
+            "created": "2023-09-21T17:41:03.986Z",
+            "name": "",
+            "description": "",
+            "id": "domain-name--163194b6-fa1f-5590-97ae-97a039d135d6",
+            "type": "domain-name",
+            "value": "libre0ffice.com"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.987",
+            "created": "2023-09-21T17:41:03.987Z",
+            "name": "",
+            "description": "",
+            "id": "domain-name--98e649ba-da2e-5fa0-8f92-e99db6a54aab",
+            "type": "domain-name",
+            "value": "mx.lockermaster.lol"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.988",
+            "created": "2023-09-21T17:41:03.988Z",
+            "name": "",
+            "description": "",
+            "id": "domain-name--3c5640da-c1a2-5a28-a95a-44055a65757e",
+            "type": "domain-name",
+            "value": "krsa2gno.internet-security-alert.com"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.988",
+            "created": "2023-09-21T17:41:03.988Z",
+            "name": "",
+            "description": "",
+            "id": "ipv4-addr--be2f0e9d-53a6-573f-b20a-d7dbb908ffb5",
+            "type": "ipv4-addr",
+            "value": "58.16.123.111"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.989",
+            "created": "2023-09-21T17:41:03.989Z",
+            "name": "",
+            "description": "",
+            "id": "ipv4-addr--4c1574eb-0e98-5fd6-8184-3693306d1f43",
+            "type": "ipv4-addr",
+            "value": "58.16.8.8"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.989",
+            "created": "2023-08-17T16:12:55.529579Z",
+            "name": "Phishing",
+            "description": "Sent email with malicious odt file attachment",
+            "id": "attack-pattern--585406f3-324f-4881-928a-8ccf181ff51f",
+            "type": "attack-pattern"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.989",
+            "created": "2023-08-17T16:12:55.529653Z",
+            "is_family": "false",
+            "name": "file.odt",
+            "description": "Contains malicious malware for reverse shell",
+            "id": "malware--5866b72d-7df0-453f-828d-13fc8ee260d9",
+            "type": "malware"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.990",
+            "created": "2023-08-17T16:12:55.529812Z",
+            "name": "SQL Injection",
+            "description": "SQL Injection vulnerability inside potenzio.com/intranet/login.php page",
+            "id": "vulnerability--defefcee-d198-4cf1-91a1-751c5ef3e580",
+            "type": "vulnerability"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.991",
+            "created": "2023-08-17T16:12:55.529872Z",
+            "name": "RCE - Remote Code Execution",
+            "description": "RCE vulnerability inside potenzio.com/intranet/hr.php page",
+            "id": "vulnerability--a2e22047-c06a-4b52-a595-6aa28a90b53b",
+            "type": "vulnerability"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.991",
+            "created": "2023-08-17T16:12:55.529974Z",
+            "name": "sudoedit",
+            "description": "Version of sudoedit vulnerable to validation of environment variable EDITOR",
+            "id": "vulnerability--a80978d8-da47-4685-acde-465835b6c06d",
+            "type": "vulnerability"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.992",
+            "pattern_type": "STIX",
+            "created": "2023-08-17T16:12:55.530038Z",
+            "pattern": "[ipv4-addr:value = '58.16.8.8']",
+            "name": "/tmp/akkj",
+            "description": "File used for encrypting intranet, \n        downloaded from krsa2gno.internet-security-alert.com:8080",
+            "id": "indicator--e0c45534-01c5-452b-8c92-88ab7370cc74",
+            "type": "indicator"
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.996",
+            "target_ref": "domain-name--163194b6-fa1f-5590-97ae-97a039d135d6",
+            "relationship_type": "has",
+            "created": "2023-08-17T16:12:55.53426Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--cdf4c9a2-0077-4a18-b0fc-dd68051bf718",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.998",
+            "target_ref": "domain-name--98e649ba-da2e-5fa0-8f92-e99db6a54aab",
+            "relationship_type": "has",
+            "created": "2023-08-17T16:12:55.534344Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--6bbc75d4-eff5-41dc-a8af-86d71d0bbf30",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:03.999",
+            "target_ref": "domain-name--3c5640da-c1a2-5a28-a95a-44055a65757e",
+            "relationship_type": "has",
+            "created": "2023-08-17T16:12:55.534416Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--ab0256e0-4668-488b-9aa9-098b9de1b1db",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.001",
+            "target_ref": "attack-pattern--585406f3-324f-4881-928a-8ccf181ff51f",
+            "relationship_type": "uses",
+            "created": "2023-08-17T16:12:55.534562Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--28410622-7565-4a6d-9733-c997d041877b",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.003",
+            "target_ref": "malware--5866b72d-7df0-453f-828d-13fc8ee260d9",
+            "relationship_type": "uses",
+            "created": "2023-08-17T16:12:55.534636Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--4e13a752-768d-4f52-a2b5-244110afec59",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.008",
+            "target_ref": "ipv4-addr--be2f0e9d-53a6-573f-b20a-d7dbb908ffb5",
+            "relationship_type": "resolves",
+            "created": "2023-08-17T16:12:55.53485Z",
+            "target_timeref": "",
+            "source_ref": "domain-name--163194b6-fa1f-5590-97ae-97a039d135d6",
+            "id": "relationship--b25d012e-779e-4647-8066-10c336dc3fbe",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.009",
+            "target_ref": "ipv4-addr--be2f0e9d-53a6-573f-b20a-d7dbb908ffb5",
+            "relationship_type": "resolves",
+            "created": "2023-08-17T16:12:55.534921Z",
+            "target_timeref": "",
+            "source_ref": "domain-name--98e649ba-da2e-5fa0-8f92-e99db6a54aab",
+            "id": "relationship--e2a6d282-ebe3-44e0-b998-6a3526f005b5",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.010",
+            "target_ref": "ipv4-addr--4c1574eb-0e98-5fd6-8184-3693306d1f43",
+            "relationship_type": "resolves",
+            "created": "2023-08-17T16:12:55.534995Z",
+            "target_timeref": "",
+            "source_ref": "domain-name--3c5640da-c1a2-5a28-a95a-44055a65757e",
+            "id": "relationship--2f248247-7f79-4294-a6be-92791ab80c23",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.012",
+            "target_ref": "vulnerability--defefcee-d198-4cf1-91a1-751c5ef3e580",
+            "relationship_type": "uses",
+            "created": "2023-08-17T16:12:55.535067Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--31406aa1-634e-4010-a90e-0a4488bd9561",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.012",
+            "target_ref": "vulnerability--a2e22047-c06a-4b52-a595-6aa28a90b53b",
+            "relationship_type": "uses",
+            "created": "2023-08-17T16:12:55.535137Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--71fd37a3-1115-41ef-a1cd-cb56d87dec7b",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.013",
+            "target_ref": "vulnerability--a80978d8-da47-4685-acde-465835b6c06d",
+            "relationship_type": "uses",
+            "created": "2023-08-17T16:12:55.535205Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--fbd032fc-721b-453b-a086-6c3735e267ee",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-21T17:41:04.013",
+            "target_ref": "indicator--e0c45534-01c5-452b-8c92-88ab7370cc74",
+            "relationship_type": "creates",
+            "created": "2023-08-17T16:12:55.53528Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--a444ea48-bb3f-423c-b54d-9ca1fc069b75",
+            "id": "relationship--ffcd8a67-995a-4649-a7f1-deeb354eb2c1",
+            "type": "relationship",
+            "source_timeref": ""
+        },
+        {
+            "created_time": "2023-09-24T17:57:56.866597900",
+            "target_ref": "vulnerability--a80978d8-da47-4685-acde-465835b6c06d",
+            "relationship_type": "is followed by",
+            "created": "2023-09-24T17:57:56.865Z",
+            "target_timeref": "2023-01-01 13:22:10",
+            "source_ref": "vulnerability--defefcee-d198-4cf1-91a1-751c5ef3e580",
+            "id": "relationship--dc99c94e-23f4-44a9-96aa-26260af48d4e",
+            "type": "relationship",
+            "source_timeref": "2023-01-01 13:17:43"
+        }
+    ],
+    "id": "bundle--6bd8387f-56d9-4f12-940f-4562e9262886",
+    "type": "bundle"
+}

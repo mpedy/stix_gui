@@ -1,0 +1,36 @@
+{
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "created_time": "2023-09-17T18:02:06.212447300",
+            "created": "2023-09-17T18:02:06.212Z",
+            "name": "redteam",
+            "description": "The red team",
+            "id": "threat-actor--566a277c-4367-445e-8f84-5705b991b94a",
+            "type": "threat-actor",
+            "labels": ["label"],
+            "modified": "2023-09-15T11:52:14.501Z"
+        },
+        {
+            "created_time": "2023-09-17T18:03:19.725619500",
+            "created": "2023-09-17T18:03:19.725Z",
+            "name": "CVE-XXXX-YYYY",
+            "description": "",
+            "id": "attack-pattern--bae159a0-b812-4ac0-b81c-2d3ae02b4af4",
+            "type": "attack-pattern"
+        },
+        {
+            "created_time": "2023-09-17T18:02:13.609930800",
+            "target_ref": "attack-pattern--bae159a0-b812-4ac0-b81c-2d3ae02b4af4",
+            "relationship_type": "uses",
+            "created": "2023-09-17T18:02:13.609Z",
+            "target_timeref": "",
+            "source_ref": "threat-actor--566a277c-4367-445e-8f84-5705b991b94a",
+            "id": "relationship--169d81a2-9c4c-4051-abc4-db8a5ed1eb1f",
+            "type": "relationship",
+            "source_timeref": ""
+        }
+    ],
+    "id": "bundle--b18a0203-9166-4cc2-a253-8e38fe296d1a",
+    "type": "bundle"
+}

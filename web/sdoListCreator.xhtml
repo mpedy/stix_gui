@@ -1,0 +1,47 @@
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+        <p:selectOneMenu id="advanced_sdo" value="#{stixGenerator.sdo_choosen}" converter="generalOBJConverter"
+                         panelStyle="width:360px; height: calc(48.8px * 5 + 38.2px + 29.6px + 13px);" var="sdo"
+                         filter="true" filterMatchMode="contains" filterNormalize="true" style="margin-right: 20px;">
+            <f:selectItem itemValue="#{null}" itemLabel="Select Object"/>
+            <f:selectItems value="#{stixGenerator.allsdo}" var="sdos" itemLabel="#{sdos.typeForLabel}" itemValue="#{sdos}"/>
+            <p:column style="width:10%">
+                <p:graphicImage name="#{sdo.imgSrc}" library="serenity-layout" alt="#{sdo.imgSrc}" style="width: 40px;"/>
+            </p:column>
+            <p:column>
+                <h:outputText value="#{sdo.typeForLabel}"/>
+            </p:column>
+        </p:selectOneMenu>
+        <p:commandButton value="Add" action="#{stixGenerator.showSDOChosen}" update="sdolist btn_createRel" styleClass="m-1 mybutton" onkeypress="console.log(event)"/>
+        <p:commandButton id="btn_createRel"  action="#{stixGenerator.clearRelVar}" value="Create Relationship" oncomplete="PF('makeRelDialog').show()" process="sdolist" update=":form:makeRelDialogContent" disabled="#{stixGenerator.sdolist.size()&lt;=1 ? 'true' : 'false'}" styleClass="mybutton"/>
+        <p:commandButton id="btn_createJSON" action="#{stixGenerator.produceJSON}" value="#{stixGenerator.isDrawing ? 'Update JSON' : 'Produce JSON'}" process="@form" update="btn_closeDraw btn_createJSON json_textarea" style="background-color: green !important;" styleClass="mybutton"/>
+        <p:commandButton id="btn_closeDraw" action="#{stixGenerator.closeDraw}" value="Close Draw" process="@form" update="btn_closeDraw btn_createJSON json_textarea" style="#{stixGenerator.isDrawing ? '' : 'display: none;'}background-color: red !important;" styleClass="mybutton"/>
+        <p:commandButton id="btn_loadJSON" value="Load STIX report" oncomplete="PF('loadJSON').show()" styleClass="mybutton"/>
+        <p:commandButton id="btn_loadJSONFiles" value="Compare STIX reports" oncomplete="PF('compareJSON').show()" styleClass="mybutton"/>
+        <p:dataTable value="#{stixGenerator.sdolist}" var="sdol" id="sdolist" style="width: 100%">
+            <f:facet name="header">
+                List of SDO Objects
+            </f:facet>
+            <p:column>
+                <div style="display: flex; align-items: center;">
+                    <div>
+                        <h:graphicImage name="#{sdol.imgSrc}" library="serenity-layout" style="width: 70px;"/>
+                    </div>
+                    <div style="flex-grow: 1;">
+                        <p:outputLabel value="#{sdol.getHTMLInfo()}" escape="false" style="vertical-align: middle; margin-left: 10px;"/>
+                    </div>
+                </div>
+            </p:column>
+            <p:column>
+                <div style="display: flex; align-items: center;">
+                    <p:outputLabel value="#{sdol.typeForLabel}"/>
+                    <div style="flex-grow: 1; text-align: end;">
+                        <p:commandButton value="Info" oncomplete="PF('SDODialogData').show()" process="sdolist" update="SDODialogDataForm:SDODialogDataContent" actionListener="#{stixGenerator.showINFO(sdol.id)}" styleClass="mybutton"/>
+                        <p:commandButton value="Delete" update="@(form :not(.noupdate))" actionListener="#{stixGenerator.delete(sdol)}" style="background-color: red !important;" styleClass="mybutton"/>
+                    </div>
+                </div>
+            </p:column>
+        </p:dataTable>
+</xhtml>
